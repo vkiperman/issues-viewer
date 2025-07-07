@@ -1,4 +1,4 @@
-import { app, shell, BrowserWindow, ipcMain } from 'electron'
+import { app, shell, BrowserWindow, ipcMain, Menu } from 'electron'
 import { join } from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import icon from '../../resources/icon.png?asset'
@@ -52,7 +52,18 @@ app.whenReady().then(() => {
   })
 
   // IPC test
-  ipcMain.on('ping', () => console.log('pong'))
+  // ipcMain.on('ping', () => console.log('pong'))
+
+  ipcMain.on('show-context-menu', (_, { x, y }) => {
+    const window = BrowserWindow.getFocusedWindow()!;
+
+    const contextMenuTemplate = [
+      { label: 'Inspect', click: () => window.webContents.inspectElement(x, y) },
+    ];
+
+    Menu.buildFromTemplate(contextMenuTemplate)
+      .popup({ window, x, y });
+  });
 
   createWindow()
 

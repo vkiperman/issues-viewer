@@ -1,10 +1,15 @@
+import GitHubIssuesViewer from './components/GitHubIssuesViewer'
+
 function App(): React.JSX.Element {
 
-  return (
-    <>
-      <h1 className="text-xl">Hello World!</h1>
-    </>
-  )
+  // const handleContextMenu = event => {
+  //   event.preventDefault();
+  //   const { clientX: x, clientY: y } = event;
+  //   window.electron.ipcRenderer.send('show-context-menu', { x, y });
+  // };
+  
+
+  return (<GitHubIssuesViewer />)
 }
 
 export default App
