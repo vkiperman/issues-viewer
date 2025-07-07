@@ -72,7 +72,7 @@ export default function GitHubIssuesViewer() {
           </div>
         </div>
       ) : (
-        !(isLoading || isLoading) && <p className="mt-4">Enter a repository and token to view issues.</p>
+        !(isLoading || isError) && <p className="mt-4">Enter a repository and token to view issues.</p>
       )}
     </div>
   );
