@@ -4,7 +4,7 @@ A simple Issues Viewer for GitHub Repositories using GitHub’s API
 ## Getting started
 Install Node.js packages.
 ```
-npm i
+npm install
 ```
 
 Launch the app locally.
